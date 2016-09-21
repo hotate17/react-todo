@@ -15,6 +15,14 @@ var App = React.createClass({
 						</div>
 						<p className="list__name">Todo item 1</p>
 						<div className="list__actions"><span /></div>
+						<ul className="dropdown">
+							<li className="dropdown__item">
+								<a className="dropdown__link" href="#">Edit</a>
+							</li>
+							<li className="dropdown__item">
+								<a className="dropdown__link important" href="#">Delete</a>
+							</li>
+						</ul>
 					</li>
 					<li className="list__item pink disabled">
 						<div className="list__checkbox">
@@ -22,6 +30,14 @@ var App = React.createClass({
 						</div>
 						<p className="list__name">Todo item 2</p>
 						<div className="list__actions"><span /></div>
+						<ul className="dropdown">
+							<li className="dropdown__item">
+								<a className="dropdown__link" href="#">Edit</a>
+							</li>
+							<li className="dropdown__item">
+								<a className="dropdown__link important" href="#">Delete</a>
+							</li>
+						</ul>
 					</li>
 					<li className="list__item purple">
 						<div className="list__checkbox">
@@ -29,6 +45,14 @@ var App = React.createClass({
 						</div>
 						<p className="list__name">Todo item 2</p>
 						<div className="list__actions"><span /></div>
+						<ul className="dropdown">
+							<li className="dropdown__item">
+								<a className="dropdown__link" href="#">Edit</a>
+							</li>
+							<li className="dropdown__item">
+								<a className="dropdown__link important" href="#">Delete</a>
+							</li>
+						</ul>
 					</li>
 					<li className="list__item blue">
 						<div className="list__checkbox">
@@ -36,6 +60,14 @@ var App = React.createClass({
 						</div>
 						<p className="list__name">Todo item 2</p>
 						<div className="list__actions"><span /></div>
+						<ul className="dropdown">
+							<li className="dropdown__item">
+								<a className="dropdown__link" href="#">Edit</a>
+							</li>
+							<li className="dropdown__item">
+								<a className="dropdown__link important" href="#">Delete</a>
+							</li>
+						</ul>
 					</li>
 					<li className="list__item green">
 						<div className="list__checkbox">
@@ -43,6 +75,14 @@ var App = React.createClass({
 						</div>
 						<p className="list__name">Todo item 2</p>
 						<div className="list__actions"><span /></div>
+						<ul className="dropdown">
+							<li className="dropdown__item">
+								<a className="dropdown__link" href="#">Edit</a>
+							</li>
+							<li className="dropdown__item">
+								<a className="dropdown__link important" href="#">Delete</a>
+							</li>
+						</ul>
 					</li>
 					<li className="list__item yellow">
 						<div className="list__checkbox">
@@ -50,6 +90,14 @@ var App = React.createClass({
 						</div>
 						<p className="list__name">Todo item 2</p>
 						<div className="list__actions"><span /></div>
+						<ul className="dropdown">
+							<li className="dropdown__item">
+								<a className="dropdown__link" href="#">Edit</a>
+							</li>
+							<li className="dropdown__item">
+								<a className="dropdown__link important" href="#">Delete</a>
+							</li>
+						</ul>
 					</li>
 				</ul>
 

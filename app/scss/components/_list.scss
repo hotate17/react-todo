@@ -21,7 +21,17 @@ $listSpacing: 	25px;
 			margin: 0;
 		}
 		&.disabled {
-			opacity: .3;
+			&:before {
+				content: "";
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba($WHITE, .7);
+				z-index: 10;
+			}
 		}
 		&.pink {
 			background: $PINK;

@@ -8,7 +8,6 @@ body {
 	font-weight: $BASE_FONT_WEIGHT;
 	color: $TEXT_COLOR;
 	background: $PALE_YELLOW;
-	box-sizing: border-box;
 }
 
 
@@ -66,4 +65,8 @@ body {
 		height: 0;
 		visibility: hidden;
 	}
+}
+
+.important {
+	color: $WARNING_RED !important;
 }
