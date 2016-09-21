@@ -1,0 +1,69 @@
+/////////////////////// 
+//			BODY				//
+//////////////////////
+body {
+	font-family: 'Roboto', sans-serif;
+	font-size: $BASE_FONT_SIZE;
+	line-height: 1.4;
+	font-weight: $BASE_FONT_WEIGHT;
+	color: $TEXT_COLOR;
+	background: $PALE_YELLOW;
+	box-sizing: border-box;
+}
+
+
+/////////////////////// 
+//			LAYOUT			//
+//////////////////////
+.container {
+	max-width: 600px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+
+/////////////////////// 
+//			ICONS				//
+//////////////////////
+%icon--actions__dot {
+	background: rgba(#000, .3);
+	border-radius: 50%;
+	width: 5px;
+	height: 5px;
+	margin-left: 4px;
+}
+%icon--actions {
+	width: 24px;
+	height: 5px;
+	text-align: center;
+	cursor:pointer;
+	span {
+		display: inline-block;
+		vertical-align: top;
+		@extend %icon--actions__dot;
+	}
+	&:before,
+	&:after {
+		content: "";
+		display: inline-block;
+		vertical-align: top;
+		@extend %icon--actions__dot;
+	}
+	&:before {
+		margin: 0;
+	}
+}
+
+
+/////////////////////// 
+//			HELPERS			//
+//////////////////////
+.clearfix, %clearfix {
+	&:after{
+		content:"";
+		clear: both;
+		display: block;
+		height: 0;
+		visibility: hidden;
+	}
+}

@@ -1,0 +1,23 @@
+//------------------//
+//			config			//
+
+$btnHeight:		35px;
+
+//------------------//
+
+.button, %button {
+	display: block;
+	height: $btnHeight;
+	padding: 0 20px;
+	color: $WHITE;
+	font-size: $FONT_SIZE_SM;
+	font-weight: $FONT_WEIGHT_BOLD;
+	line-height: $btnHeight;
+	background: $DARK_GREEN;
+	border-radius: 2px;
+	border-bottom: 2px solid $DARKER_GREEN;
+
+	&:active {
+		border-width: 0;
+	}
+}

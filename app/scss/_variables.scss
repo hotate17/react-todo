@@ -1,0 +1,41 @@
+/////////////////////// 
+//			COLORS			//
+//////////////////////
+$GREY:						#4A4A4A;
+$WHITE:						#FFFFFF;
+$PALE_YELLOW:			#FDF9EF;
+$DARK_GREEN:			#26A69A;
+$DARKER_GREEN:		#00897B;
+
+$LIGHT_GREY:			#CCCCCC;
+$LIGHTER_GREY:		#DCDCDC;
+$LIGHTEST_GREY:		#EEEEEE;
+
+$RED:							rgba(#EF5350, .85);
+$PINK:						rgba(#F06292, .85);
+$PURPLE:					rgba(#7E57C2, .85);
+$BLUE:						rgba(#42A5F5, .85);
+$GREEN:						rgba(#4DD0E1, .85);
+$YELLOW:					#FFE082;
+
+$TEXT_COLOR:	$GREY;
+$TEXT_WHITE:	$WHITE;
+
+
+/////////////////////// 
+//		TYPOGRAPHY		//
+//////////////////////
+$BASE_FONT_SIZE:		16px !default;
+$FONT_SIZE_LG:			1.125rem; /*18px*/
+$FONT_SIZE_SM:			0.875rem; /*14px*/
+
+$BASE_FONT_WEIGHT:	400;
+$FONT_WEIGHT_BOLD:	500;
+
+
+/////////////////////// 
+//			SPACING			//
+//////////////////////
+$BASE_SPACING:			1rem;
+$SPACING_SM:				$FONT_SIZE_SM;
+$SPACING_XS:				0.75rem;
