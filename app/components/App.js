@@ -1,119 +1,33 @@
 var React = require('react');
+var Header = require('./Header');
+var Item = require('./Item');
+var AddItemForm = require('./AddItemForm');
+
 
 var App = React.createClass({
+
+	propTypes: ({
+		initialItems: React.PropTypes.array.isRequired,
+	}),
+
+	getInitialState: function(){
+		return {
+			items: this.props.initialItems,
+		}
+	},
+
 	render: function(){
 		return (
 			<div className="container">
-				<h1>
-					React Todo List
-				</h1>
-
+				<Header />
 				<ul className="list">
-					<li className="list__item">
-						<div className="list__checkbox">
-							<input type="checkbox" />
-						</div>
-						<p className="list__name">Todo item 1</p>
-						<div className="list__actions"><span /></div>
-						<ul className="dropdown">
-							<li className="dropdown__item">
-								<a className="dropdown__link" href="#">Edit</a>
-							</li>
-							<li className="dropdown__item">
-								<a className="dropdown__link important" href="#">Delete</a>
-							</li>
-						</ul>
-					</li>
-					<li className="list__item pink disabled">
-						<div className="list__checkbox">
-							<input type="checkbox" checked />
-						</div>
-						<p className="list__name">Todo item 2</p>
-						<div className="list__actions"><span /></div>
-						<ul className="dropdown">
-							<li className="dropdown__item">
-								<a className="dropdown__link" href="#">Edit</a>
-							</li>
-							<li className="dropdown__item">
-								<a className="dropdown__link important" href="#">Delete</a>
-							</li>
-						</ul>
-					</li>
-					<li className="list__item purple">
-						<div className="list__checkbox">
-							<input type="checkbox" />
-						</div>
-						<p className="list__name">Todo item 2</p>
-						<div className="list__actions"><span /></div>
-						<ul className="dropdown">
-							<li className="dropdown__item">
-								<a className="dropdown__link" href="#">Edit</a>
-							</li>
-							<li className="dropdown__item">
-								<a className="dropdown__link important" href="#">Delete</a>
-							</li>
-						</ul>
-					</li>
-					<li className="list__item blue">
-						<div className="list__checkbox">
-							<input type="checkbox" />
-						</div>
-						<p className="list__name">Todo item 2</p>
-						<div className="list__actions"><span /></div>
-						<ul className="dropdown">
-							<li className="dropdown__item">
-								<a className="dropdown__link" href="#">Edit</a>
-							</li>
-							<li className="dropdown__item">
-								<a className="dropdown__link important" href="#">Delete</a>
-							</li>
-						</ul>
-					</li>
-					<li className="list__item green">
-						<div className="list__checkbox">
-							<input type="checkbox" />
-						</div>
-						<p className="list__name">Todo item 2</p>
-						<div className="list__actions"><span /></div>
-						<ul className="dropdown">
-							<li className="dropdown__item">
-								<a className="dropdown__link" href="#">Edit</a>
-							</li>
-							<li className="dropdown__item">
-								<a className="dropdown__link important" href="#">Delete</a>
-							</li>
-						</ul>
-					</li>
-					<li className="list__item yellow">
-						<div className="list__checkbox">
-							<input type="checkbox" />
-						</div>
-						<p className="list__name">Todo item 2</p>
-						<div className="list__actions"><span /></div>
-						<ul className="dropdown">
-							<li className="dropdown__item">
-								<a className="dropdown__link" href="#">Edit</a>
-							</li>
-							<li className="dropdown__item">
-								<a className="dropdown__link important" href="#">Delete</a>
-							</li>
-						</ul>
-					</li>
+					{this.state.items.map(function(item, index){
+						return (
+							<Item name={item.name} color={item.color} key={item.id} />
+						);
+					})}
 				</ul>
-
-				<form>
-					<input className="form__inputText--lg form__inputText--addItem" type="text" name="name" placeholder="Add New Item" />
-					<div className="colorSelector">
-						<input type="radio" className="colorSelector__inputRadio red checked" name="selectedColor" data-color="red" />
-						<input type="radio" className="colorSelector__inputRadio pink" name="selectedColor" data-color="pink" />
-						<input type="radio" className="colorSelector__inputRadio purple" name="selectedColor" data-color="purple" />
-						<input type="radio" className="colorSelector__inputRadio blue" name="selectedColor" data-color="blue" />
-						<input type="radio" className="colorSelector__inputRadio green" name="selectedColor" data-color="green" />
-						<input type="radio" className="colorSelector__inputRadio yellow" name="selectedColor" data-color="yellow" />
-					</div>
-					<input className="form__inputSubmit--addItem" type="submit" value="Add" />
-				</form>
-				
+				<AddItemForm />
 			</div>
 		);
 	}
