@@ -6,6 +6,7 @@ var Item = React.createClass({
 		name: React.PropTypes.string.isRequired,
 		color: React.PropTypes.string,
 		onPassDelete: React.PropTypes.func.isRequired,
+		onDeleteCheck: React.PropTypes.func.isRequired,
 	},
 
 	getInitialState: function(){
@@ -21,8 +22,8 @@ var Item = React.createClass({
 	},
 
 	handleChange: function(e){
-		//console.log('checked? '+e.target.checked)
 		this.state.checked = e.target.checked;
+		this.props.onDeleteCheck(this.state.checked);
 		this.setState(this.state);
 	},
 

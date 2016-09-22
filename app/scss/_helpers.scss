@@ -28,6 +28,24 @@
 }
 
 //------------------//
+//	  	element			//
+//------------------//
+
+.is--hide {
+	display: none !important;
+}
+.is--show {
+	display: block !important;
+}
+.is--hidden {
+	visibility: hidden !important;
+}
+.is--visible {
+	visibility: visible !important;
+}
+
+
+//------------------//
 //	  Typography		//
 //------------------//
 

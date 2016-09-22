@@ -1,7 +1,7 @@
 var React = require('react');
 
 function Actions(props){
-	var makeThisVisible = props.clickedFlag ? 'is--visible' : '';
+	var makeThisVisible = props.clickedFlag ? 'is--show' : '';
 
 	return (
 		<ul className={`dropdown ${makeThisVisible}`}>

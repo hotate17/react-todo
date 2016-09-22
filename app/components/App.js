@@ -13,6 +13,7 @@ var App = React.createClass({
 	getInitialState: function(){
 		return {
 			items: this.props.initialItems,
+			checkedItems: false,
 		}
 	},
 
@@ -33,10 +34,20 @@ var App = React.createClass({
 		this.setState(this.state);
 	},
 
+	onDeleteChecker: function(checked){
+		this.state.checkedItems = checked;
+		this.setState(this.state);
+	},
+
+	onMultiDelete: function(){
+		//if checkeditems is true, delete items
+		console.log('onMultiDelete ', this.state.items);
+	},
+
 	render: function(){
 		return (
 			<div className="container">
-				<Header />
+				<Header checkedItemsFlag={this.state.checkedItems} handleDeleteItems={this.onMultiDelete} />
 				<ul className="list">
 					{this.state.items.map(function(item, index){
 						return (
@@ -44,6 +55,7 @@ var App = React.createClass({
 								name={item.name}
 								color={item.color}
 								key={item.id}
+								onDeleteCheck={this.onDeleteChecker}
 								onPassDelete={function(){ this.onItemDelete(index) }.bind(this)} 
 							/>
 						);
