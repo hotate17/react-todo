@@ -5,8 +5,10 @@ var Item = React.createClass({
 	propTypes: {
 		name: React.PropTypes.string.isRequired,
 		color: React.PropTypes.string,
+		checked: React.PropTypes.bool.isRequired,
+		id: React.PropTypes.number.isRequired,
 		onPassDelete: React.PropTypes.func.isRequired,
-		onDeleteCheck: React.PropTypes.func.isRequired,
+		onCheckedCheck: React.PropTypes.func.isRequired,
 	},
 
 	getInitialState: function(){
@@ -23,7 +25,7 @@ var Item = React.createClass({
 
 	handleChange: function(e){
 		this.state.checked = e.target.checked;
-		this.props.onDeleteCheck(this.state.checked);
+		this.props.onCheckedCheck(this.state.checked, this.props.id);
 		this.setState(this.state);
 	},
 
@@ -32,7 +34,7 @@ var Item = React.createClass({
 		var checkedClass = this.state.checked ? 'disabled' : '';
 		
 		return (
-			<li className={`list__item ${colorClass} ${checkedClass}`}>
+			<li className={`list__item ${colorClass} ${checkedClass}`} data-id={this.props.id}>
 				<div className="list__checkbox">
 					<input type="checkbox" onChange={this.handleChange} />
 				</div>

@@ -7,16 +7,19 @@ var INIT_ITEMS = [
 	{
 		name: 'Todo item 1',
 		color: '',
+		checked: false,
 		id: 1
 	},
 	{
 		name: 'Todo item 2',
 		color: 'pink',
+		checked: false,
 		id: 2
 	},
 	{
 		name: 'Todo item 3',
 		color: 'blue',
+		checked: false,
 		id: 3
 	}
 ];

@@ -9,7 +9,7 @@ var AddItemForm = React.createClass({
 	getInitialState: function(){
 		return {
 			name: '',
-			color: 'red'
+			color: 'red',
 		}
 	},
 
@@ -19,11 +19,13 @@ var AddItemForm = React.createClass({
 		var name = this.state.name;
 		var color = this.state.color;
 
-		this.props.onAdd(name, color);
-		this.setState({
-			name: '',
-			color: 'red'
-		});
+		if(name != ''){
+			this.props.onAdd(name, color);
+			this.setState({
+				name: '',
+				color: 'red'
+			});
+		}
 	},
 
 	onNameChange: function(e){
