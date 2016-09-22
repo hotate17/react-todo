@@ -1,0 +1,77 @@
+//------------------//
+//			config			//
+
+
+
+//------------------//
+
+
+.clearfix, %clearfix {
+	&:after{
+		content:"";
+		clear: both;
+		display: block;
+		height: 0;
+		visibility: hidden;
+	}
+}
+
+//------------------//
+//			layout			//
+//------------------//
+
+.float--left {
+	float: left !important;
+}
+.float--right {
+	float: right !important;
+}
+
+//------------------//
+//	  Typography		//
+//------------------//
+
+.text--lg {
+	font-size: $FONT_SIZE_LG !important;
+}
+.text--sm {
+	font-size: $FONT_SIZE_SM !important;
+}
+.text--xs {
+	font-size: $FONT_SIZE_XS !important;
+}
+
+.text--reg {
+	font-weight: $BASE_FONT_WEIGHT !important;
+}
+.text--bold {
+	font-weight: $FONT_WEIGHT_BOLD !important;
+}
+
+//------------------//
+//	  	Spacer			//
+//------------------//
+
+.spacer {
+	margin: $BASE_SPACING 0 !important;
+}
+.spacer--lg {
+	margin: $SPACING_LG 0 !important;
+}
+.spacer--sm {
+	margin: $SPACING_SM 0 !important;
+}
+.spacer--xs {
+	margin: $SPACING_XS 0 !important;
+}
+.spacer--top--xs {
+	margin-top: $SPACING_XS !important;
+}
+
+//------------------//
+//	  	Color				//
+//------------------//
+
+.important {
+	color: $WARNING_RED !important;
+}

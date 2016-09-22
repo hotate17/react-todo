@@ -9,7 +9,7 @@ function Actions(props){
 				<a className="dropdown__link" href="#">Edit</a>
 			</li>
 			<li className="dropdown__item">
-				<a className="dropdown__link important" href="#">Delete</a>
+				<a className="dropdown__link important" href="#" onClick={props.onDelete}>Delete</a>
 			</li>
 		</ul>
 	);
@@ -17,6 +17,7 @@ function Actions(props){
 
 Actions.propTypes = {
 	clickedFlag: React.PropTypes.bool.isRequired,
+	onDelete: React.PropTypes.func.isRequired,
 };
 
 module.exports = Actions;

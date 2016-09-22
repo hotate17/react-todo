@@ -52,21 +52,3 @@ body {
 		margin: 0;
 	}
 }
-
-
-/////////////////////// 
-//			HELPERS			//
-//////////////////////
-.clearfix, %clearfix {
-	&:after{
-		content:"";
-		clear: both;
-		display: block;
-		height: 0;
-		visibility: hidden;
-	}
-}
-
-.important {
-	color: $WARNING_RED !important;
-}

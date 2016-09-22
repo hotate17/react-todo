@@ -13,9 +13,10 @@ var Header = React.createClass({
 
 	render: function(){
 		return (
-			<h1>
-				{this.props.title}
-			</h1>
+			<header>
+				<h1 className="clearfix">{this.props.title} <a className="float--right text--xs spacer--top--xs text--reg" href="#">Clear All Checked Items</a></h1>
+				
+			</header>
 		);
 	}
 });

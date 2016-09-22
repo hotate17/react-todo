@@ -51,11 +51,13 @@ $listSpacing: 	25px;
 	}
 
 		@at-root #{&}__checkbox {
+			position: relative;
 			float: left;
 			width: $listHeight;
 			height: 100%;
 			border-right:1px solid $WHITE;
 			text-align:center;
+			z-index: 11;
 			
 			input[type="checkbox"]{
 				position: relative;
