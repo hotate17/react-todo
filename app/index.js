@@ -8,18 +8,21 @@ var INIT_ITEMS = [
 		name: 'Todo item 1',
 		color: '',
 		checked: false,
+		edit: false,
 		id: 1
 	},
 	{
 		name: 'Todo item 2',
 		color: 'pink',
 		checked: false,
+		edit: false,
 		id: 2
 	},
 	{
 		name: 'Todo item 3',
-		color: 'blue',
+		color: 'purple',
 		checked: false,
+		edit: false,
 		id: 3
 	}
 ];

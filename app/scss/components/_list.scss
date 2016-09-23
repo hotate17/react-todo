@@ -69,16 +69,33 @@ $listSpacing: 	25px;
 		}
 
 		@at-root #{&}__name {
+			position: relative;
 			float: left;
-			font-size: $FONT_SIZE_LG;
-			color: $TEXT_WHITE;
-			line-height: $listHeight;
-			padding: 0 0 0 $listSpacing;
+			width: calc(100% - #{$listHeight});
+			//z-index: 10;
 		}
+			@at-root #{&}__text {
+				font-size: $FONT_SIZE_LG;
+				color: $TEXT_WHITE;
+				line-height: $listHeight;
+				padding: 0 0 0 $listSpacing;
+			}
+			@at-root #{&}__form {
+				position:absolute;
+				top:5px;
+				left: 12px;
+				margin: 0;
+				width: calc(100% - #{$listSpacing});
+				display: none;
+
+				.colorSelector {
+					right: 95px;
+				}
+			}
 
 		@at-root #{&}__actions {
 			position: absolute;
-			right: 25px;
+			right: $listSpacing;
 			top: 50%;
 			transform: translateY(-50%);
 			@extend %icon--actions;

@@ -2,9 +2,9 @@ var React = require('react');
 
 var AddItemForm = React.createClass({
 
-	propTypes: ({
+	propTypes: {
 		onAdd: React.PropTypes.func.isRequired,
-	}),
+	},
 	
 	getInitialState: function(){
 		return {
@@ -91,7 +91,7 @@ var AddItemForm = React.createClass({
 				<div className="colorSelector">
 					{radios}
 				</div>
-				<input className="form__inputSubmit--addItem" type="submit" value="Add" />
+				<input className="form__inputSubmit--inside" type="submit" value="Add" />
 			</form>
 		);
 	}

@@ -26,6 +26,7 @@ var App = React.createClass({
 			checkedChecker: false,
 			countChecked: false,
 			checkedNum: 1,
+			editChecker: false,
 		}
 	},
 
@@ -34,6 +35,7 @@ var App = React.createClass({
 			name: name,
 			color: color,
 			checked: false,
+			edit: false,
 			id: itemId,
 		});
 		this.setState(this.state);
@@ -82,6 +84,33 @@ var App = React.createClass({
 		});
 	},
 
+	onEditCheck: function(flag, id){
+		var array = this.state.items;
+		var index = getIndex(id, array, 'id');
+		var counter = [];
+
+		this.state.editChecker = flag;
+		this.state.items[index].edit = this.state.editChecker;
+		this.setState(this.state);
+
+
+		this.state.items.forEach(function(obj, index){
+			if(obj.edit === true){
+				counter.push(obj);
+			}
+		});
+
+		if(counter.length >= 1){
+			this.state.items.forEach(function(obj, index){
+				obj.edit = false;
+			});
+			this.setState(this.state);
+			this.state.items[index].edit = true;
+			
+			counter.splice(0, 1);			
+		}
+	},
+
 	render: function(){
 		return (
 			<div className="container">
@@ -93,10 +122,12 @@ var App = React.createClass({
 								name={item.name}
 								color={item.color}
 								checked={item.checked}
+								edit={item.edit}
 								key={item.id}
 								id={item.id}
 								onCheckedCheck={this.onCheckedChecker}
 								onPassDelete={function(){ this.onItemDelete(index) }.bind(this)} 
+								editFlag={this.onEditCheck}
 							/>
 						);
 					}.bind(this))}
