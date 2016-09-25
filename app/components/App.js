@@ -18,6 +18,7 @@ var App = React.createClass({
 
 	propTypes: ({
 		initialItems: React.PropTypes.array.isRequired,
+		colors: React.PropTypes.array.isRequired,
 	}),
 
 	getInitialState: function(){
@@ -128,11 +129,12 @@ var App = React.createClass({
 								onCheckedCheck={this.onCheckedChecker}
 								onPassDelete={function(){ this.onItemDelete(index) }.bind(this)} 
 								editFlag={this.onEditCheck}
+								editColorList={this.props.colors}
 							/>
 						);
 					}.bind(this))}
 				</ul>
-				<AddItemForm onAdd={this.onItemAdd} />
+				<AddItemForm onAdd={this.onItemAdd} colorList={this.props.colors} />
 			</div>
 		);
 	}

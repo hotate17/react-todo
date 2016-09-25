@@ -27,4 +27,37 @@ var INIT_ITEMS = [
 	}
 ];
 
-ReactDOM.render(<App initialItems={INIT_ITEMS} />, document.getElementById('app'));
+var COLORS = [
+	{
+		name: 'red',
+		checked: true,
+		id: 1,
+	},
+	{
+		name: 'pink',
+		checked: false,
+		id: 2,
+	},
+	{
+		name: 'purple',
+		checked: false,
+		id: 3,
+	},
+	{
+		name: 'blue',
+		checked: false,
+		id: 4,
+	},
+	{
+		name: 'green',
+		checked: false,
+		id: 5,
+	},
+	{
+		name: 'yellow',
+		checked: false,
+		id: 6,
+	}
+];
+
+ReactDOM.render(<App initialItems={INIT_ITEMS} colors={COLORS} />, document.getElementById('app'));

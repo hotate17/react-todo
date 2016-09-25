@@ -4,6 +4,7 @@ var AddItemForm = React.createClass({
 
 	propTypes: {
 		onAdd: React.PropTypes.func.isRequired,
+		colorList: React.PropTypes.array.isRequired,
 	},
 	
 	getInitialState: function(){
@@ -39,41 +40,8 @@ var AddItemForm = React.createClass({
 	},
 
 	render: function(){
-		
-		var COLORS = [
-			{
-				name: 'red',
-				checked: true,
-				id: 1,
-			},
-			{
-				name: 'pink',
-				checked: false,
-				id: 2,
-			},
-			{
-				name: 'purple',
-				checked: false,
-				id: 3,
-			},
-			{
-				name: 'blue',
-				checked: false,
-				id: 4,
-			},
-			{
-				name: 'green',
-				checked: false,
-				id: 5,
-			},
-			{
-				name: 'yellow',
-				checked: false,
-				id: 6,
-			}
-		];
 
-		var radios = COLORS.map(function(color, index){
+		var radios = this.props.colorList.map(function(color, index){
 			if(this.state.color == color.name){
 				color.checked = true;
 			}else {

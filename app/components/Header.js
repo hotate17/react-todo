@@ -10,7 +10,7 @@ var Header = React.createClass({
 
 	getDefaultProps: function(){
 		return {
-			title: 'React Todo List',
+			title: 'React Todo List 🐶',
 		}
 	},
 

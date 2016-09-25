@@ -12,6 +12,7 @@ var Item = React.createClass({
 		onPassDelete: React.PropTypes.func.isRequired,
 		onCheckedCheck: React.PropTypes.func.isRequired,
 		editFlag: React.PropTypes.func.isRequired,
+		editColorList: React.PropTypes.array.isRequired,
 	},
 
 	getInitialState: function(){
@@ -52,7 +53,7 @@ var Item = React.createClass({
 
 				<div className="list__name">
 					<p className="list__text" onClick={this.onEditSwitch}>{this.props.name}</p>
-					<EditItemForm editMode={this.props.edit} val={this.props.name} />
+					<EditItemForm editMode={this.props.edit} val={this.props.name} color={this.props.color} colorList={this.props.editColorList} />
 				</div>
 
 				<div className="list__actions" onClick={this.handleClick}><span /></div>
