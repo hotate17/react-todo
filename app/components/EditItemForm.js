@@ -8,12 +8,40 @@ var EditItemForm = React.createClass({
 		color: React.PropTypes.string,
 	},
 
-	componentDidUpdate: function(){
-		this.refs.editInput.select();
+	getInitialState: function(){
+		return {
+			newName: this.props.val,
+			newColor: this.props.color,
+		}
 	},
+	componentWillReceiveProps: function(nextProps){
+		if(nextProps.editMode === false){
+			this.setState({ 
+				newName: this.props.val,
+				newColor: this.props.color,
+			});
+		}
+	},
+	handleValueChange: function(e){
+		this.state.newName = e.target.value;
+		this.setState(this.state);
+	},
+	onColorChange: function(e){
+		this.state.newColor = e.target.getAttribute('data-color');
+		this.setState(this.state);
+	},
+	onSubmit: function(e){
+		e.preventDefault();
 
-	onColorChange: function(){
-		//coColorChange for Edit
+		var name = this.state.newName;
+		var color = this.state.newColor;
+		var id = this.props.id;
+
+		if(name != this.props.val || color != this.props.color){
+			if(name != ''){
+				this.props.notifyEdits(name, color, id);
+			}
+		}
 	},
 
 	render: function(){
@@ -21,11 +49,7 @@ var EditItemForm = React.createClass({
 
 		var radios = this.props.colorList.map(function(color, index){
 			
-			if(this.props.color){
-				var checkedClass = (color.name == this.props.color) ? 'checked' : '';
-			}else {
-				var checkedClass = (color.name == 'red') ? 'checked' :'';
-			}
+			var checkedClass = (color.name == this.state.newColor) ? 'checked' : '';
 
 			return (
 				<input type="radio" onChange={this.onColorChange} className={`colorSelector__inputRadio ${color.name} ${checkedClass}`} name="selectedColor" data-color={color.name} key={color.id} />
@@ -33,12 +57,13 @@ var EditItemForm = React.createClass({
 		}.bind(this));
 
 		return (
-			<form className={`list__form ${editClass}`}>
+			<form className={`list__form ${editClass}`} onSubmit={this.onSubmit}>
 				<input
 					className="form__inputText--lg form__inputText--addItem"
 					type="text"
 					ref="editInput"
-					defaultValue={this.props.val}
+					onChange={this.handleValueChange}
+					value={this.state.newName}
 				/>
 				<div className="colorSelector">
 					{radios}

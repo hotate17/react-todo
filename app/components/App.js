@@ -21,13 +21,15 @@ var App = React.createClass({
 		colors: React.PropTypes.array.isRequired,
 	}),
 
+	componentDidMount: function(){
+		window.addEventListener('click', this.clickOutside);
+	},
+
 	getInitialState: function(){
 		return {
 			items: this.props.initialItems,
-			checkedChecker: false,
 			countChecked: false,
 			checkedNum: 1,
-			editChecker: false,
 		}
 	},
 
@@ -43,6 +45,16 @@ var App = React.createClass({
 		itemId += 1;
 	},
 
+	onItemEdit: function(name, color, id){
+		var array = this.state.items;
+		var index = getIndex(id, array, 'id');
+		this.state.items[index].name = name;
+		this.state.items[index].color = color;
+		this.state.items[index].edit = false;
+		this.setState(this.state);
+		//console.log('new name: ' + name + ' new color: ' + color + ' id: ' + id);
+	},
+
 	onItemDelete: function(index){
 		this.state.items.splice(index, 1);
 		this.setState(this.state);
@@ -53,8 +65,10 @@ var App = React.createClass({
 		var index = getIndex(id, array, 'id');
 		var counter = [];
 		
-		this.state.checkedChecker = checked;
-		this.state.items[index].checked = this.state.checkedChecker;
+		if(this.state.items[index].edit === true){
+			this.state.items[index].edit = false;	
+		}
+		this.state.items[index].checked = checked;
 		this.setState(this.state);
 
 		this.state.items.forEach(function(obj, index){
@@ -90,8 +104,7 @@ var App = React.createClass({
 		var index = getIndex(id, array, 'id');
 		var counter = [];
 
-		this.state.editChecker = flag;
-		this.state.items[index].edit = this.state.editChecker;
+		this.state.items[index].edit = flag;
 		this.setState(this.state);
 
 
@@ -101,14 +114,26 @@ var App = React.createClass({
 			}
 		});
 
-		if(counter.length >= 1){
+		if(counter.length > 1){
 			this.state.items.forEach(function(obj, index){
 				obj.edit = false;
 			});
-			this.setState(this.state);
 			this.state.items[index].edit = true;
+			this.setState(this.state);
 			
 			counter.splice(0, 1);			
+		}
+
+	},
+
+	clickOutside: function(e){
+		if(!document.querySelector('[data-area]').contains(e.target)){
+			this.state.items.forEach(function(obj, index){
+				if(obj.edit === true){
+					obj.edit = false;
+				}
+			});
+			this.setState(this.state);
 		}
 	},
 
@@ -116,7 +141,7 @@ var App = React.createClass({
 		return (
 			<div className="container">
 				<Header checkedItemsFlag={this.state.countChecked} number={this.state.checkedNum} handleDeleteItems={this.onMultiDelete} />
-				<ul className="list">
+				<ul className="list" data-area>
 					{this.state.items.map(function(item, index){
 						return (
 							<Item 
@@ -130,6 +155,7 @@ var App = React.createClass({
 								onPassDelete={function(){ this.onItemDelete(index) }.bind(this)} 
 								editFlag={this.onEditCheck}
 								editColorList={this.props.colors}
+								onEdit={this.onItemEdit}
 							/>
 						);
 					}.bind(this))}

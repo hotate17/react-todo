@@ -35,10 +35,9 @@ var Item = React.createClass({
 	},
 
 	onEditSwitch: function(){
-		//console.log(this.state.editSwitch);
-		this.state.editSwitch = this.state.editSwitch ? false : true;
-		this.props.editFlag(this.state.editSwitch, this.props.id);
+		this.state.editSwitch = true;
 		this.setState(this.state);
+		this.props.editFlag(this.state.editSwitch, this.props.id);
 	},
 
 	render: function(){
@@ -53,11 +52,19 @@ var Item = React.createClass({
 
 				<div className="list__name">
 					<p className="list__text" onClick={this.onEditSwitch}>{this.props.name}</p>
-					<EditItemForm editMode={this.props.edit} val={this.props.name} color={this.props.color} colorList={this.props.editColorList} />
+					<EditItemForm 
+						editMode={this.props.edit} 
+						val={this.props.name} 
+						color={this.props.color} 
+						colorList={this.props.editColorList} 
+						notifyEdits={this.props.onEdit}
+						id={this.props.id} 
+					/>
 				</div>
-
+				{/*
 				<div className="list__actions" onClick={this.handleClick}><span /></div>
 				<Actions clickedFlag={this.state.clicked} onDelete={this.props.onPassDelete} />
+				*/}
 			</li>
 		);
 	}

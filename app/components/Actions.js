@@ -6,9 +6,6 @@ function Actions(props){
 	return (
 		<ul className={`dropdown ${makeThisVisible}`}>
 			<li className="dropdown__item">
-				<a className="dropdown__link" href="#">Edit</a>
-			</li>
-			<li className="dropdown__item">
 				<a className="dropdown__link important" href="#" onClick={props.onDelete}>Delete</a>
 			</li>
 		</ul>
