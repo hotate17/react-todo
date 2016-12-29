@@ -17,12 +17,12 @@ var EditItemForm = React.createClass({
 	componentWillReceiveProps: function(nextProps){
 		if(nextProps.editMode === false){
 			this.setState({ 
-				newName: this.props.val,
-				newColor: this.props.color,
+				newName: nextProps.val,
+				newColor: nextProps.color,
 			});
 		}
 	},
-	handleValueChange: function(e){
+	onValueChange: function(e){
 		this.state.newName = e.target.value;
 		this.setState(this.state);
 	},
@@ -37,19 +37,17 @@ var EditItemForm = React.createClass({
 		var color = this.state.newColor;
 		var id = this.props.id;
 
-		if(name != this.props.val || color != this.props.color){
-			if(name != ''){
-				this.props.notifyEdits(name, color, id);
-			}
+		if(name != ''){
+			this.props.notifyEdits(name, color, id);
 		}
 	},
-
 	render: function(){
 		var editClass = this.props.editMode ? 'is--show' : '';
 
 		var radios = this.props.colorList.map(function(color, index){
 			
 			var checkedClass = (color.name == this.state.newColor) ? 'checked' : '';
+			console.log(this.state.newColor, this.props.color);
 
 			return (
 				<input type="radio" onChange={this.onColorChange} className={`colorSelector__inputRadio ${color.name} ${checkedClass}`} name="selectedColor" data-color={color.name} key={color.id} />
@@ -62,7 +60,7 @@ var EditItemForm = React.createClass({
 					className="form__inputText--lg form__inputText--addItem"
 					type="text"
 					ref="editInput"
-					onChange={this.handleValueChange}
+					onChange={this.onValueChange}
 					value={this.state.newName}
 				/>
 				<div className="colorSelector">
