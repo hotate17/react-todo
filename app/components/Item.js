@@ -1,5 +1,4 @@
 var React = require('react');
-var Actions = require('./Actions');
 var EditItemForm = require('./EditItemForm');
 
 var Item = React.createClass({
@@ -61,10 +60,6 @@ var Item = React.createClass({
 						id={this.props.id} 
 					/>
 				</div>
-				{/*
-				<div className="list__actions" onClick={this.handleClick}><span /></div>
-				<Actions clickedFlag={this.state.clicked} onDelete={this.props.onPassDelete} />
-				*/}
 			</li>
 		);
 	}

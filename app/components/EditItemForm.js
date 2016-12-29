@@ -47,7 +47,6 @@ var EditItemForm = React.createClass({
 		var radios = this.props.colorList.map(function(color, index){
 			
 			var checkedClass = (color.name == this.state.newColor) ? 'checked' : '';
-			console.log(this.state.newColor, this.props.color);
 
 			return (
 				<input type="radio" onChange={this.onColorChange} className={`colorSelector__inputRadio ${color.name} ${checkedClass}`} name="selectedColor" data-color={color.name} key={color.id} />
